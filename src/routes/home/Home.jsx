@@ -1,27 +1,21 @@
-import { useEffect, useState, useContext } from "react";
-import "./Home.scss";
+import { useContext } from "react";
 import Posts from "../../components/posts/Posts";
-import Comments from "../../components/comments/Comments";
-import Filters from "../../components/filters/Filters";
-import { CategoriesContext } from "../../context/category.context";
-import { PostContext } from "../../context/post.context";
 
-import Axios from "axios";
 import { AiOutlineUser, AiOutlineQuestion } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 import { FaPenFancy } from "react-icons/fa";
+import { PostContext } from "../../context/post.context";
+
+import "./Home.scss";
 
 const Home = () => {
-  const [showComments, setShowComments] = useState(false);
-  const [post, setPost] = useState([]);
-
-  // const { categories } = useContext(CategoriesContext);
   const { posts } = useContext(PostContext);
-  // console.table(categories);
-  console.table(posts);
 
-  const sortedPosts = posts.sort((a, b) => b.likes - a.likes);
+  // console.log("====================================");
+  // console.log(posts);
+  // console.log("====================================");
 
+  // console.log(posts);
 
   //  useEffect(() => {
   //     const fetchData = async () => {
@@ -108,29 +102,7 @@ const Home = () => {
           <label>Publicación</label>
         </div>
       </div>
-      <div className="sand-box">
-        {!showComments && (
-          <>
-            <div>
-              <h1>Here's what's new!</h1>
-              {sortedPosts.length > 0 &&
-                posts.map((post) => (
-                  <Posts
-                    setPost={setPost}
-                    showCommets={showComments}
-                    setShowComments={setShowComments}
-                    key={post.id}
-                    post={post}
-                  />
-                ))}
-              {sortedPosts.length === 0 && <h1>nooOF</h1>}
-            </div>
-          </>
-        )}
-        {showComments && (
-          <Comments currentPost={post} setShowComments={setShowComments} />
-        )}
-      </div>
+      <div className="sand-box">{posts.map((x) => console.log(x.id))}</div>
     </div>
   );
 };

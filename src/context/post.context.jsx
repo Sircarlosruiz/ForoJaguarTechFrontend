@@ -11,11 +11,11 @@ export const PostProvider = ({ children }) => {
   useEffect(() => {
     const getPosts = async() => {
       const response = await fetch("http://localhost:8000/all-posts");
-    //   const posts = await response.json();
-      setPosts(response);
+      const posts = await response.json();
+      setPosts(posts);
     //   console.log(response);
     //   console.log(response);
-      console.log(posts);
+      // console.log(posts);
     };
 
     getPosts();
