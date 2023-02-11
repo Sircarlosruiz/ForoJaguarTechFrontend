@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Posts from "../../components/posts/Posts";
 
 import { AiOutlineUser, AiOutlineQuestion } from "react-icons/ai";
@@ -9,6 +9,7 @@ import { PostContext } from "../../context/post.context";
 import "./Home.scss";
 
 const Home = () => {
+  const [postsList, setpostsList] = useState([]);
   const { posts } = useContext(PostContext);
 
   // console.log("====================================");
@@ -73,15 +74,27 @@ const Home = () => {
   //   }
   // }, [activeFilter, allPosts, filteredPosts]);
 
-  // useEffect(() => {}, [posts]);
+  useEffect(() => {
+    let post = posts.map((x) => ({
+      id: x.id,
+      isStudent: x.isStudent,
+      creator: x.creator,
+      categories: x.categories,
+      content: x.content,
+      isActive: x.isActive,
+      title: x.title,
+    }));
+
+    setpostsList(post);
+  }, [posts]);
 
   return (
-    <div className="write-post-container">
-      <div className="home-container">
+    <div className="write-post-icon">
+      <div className="home-icon">
         <div className="icon-user">
           <AiOutlineUser className="icon-question-mark" />
         </div>
-        <div className="input-container">
+        <div className="input-icon">
           <textarea
             rows="4"
             cols="50"
@@ -89,20 +102,22 @@ const Home = () => {
             className="input-text-post"
           />
         </div>
-        <div className="question-container">
+        <div className="question-icon">
           <AiOutlineQuestion className="icon-question-mark" />
           <label>Preguntar</label>
         </div>
-        <div className="reply-container">
+        <div className="reply-icon">
           <BsPencilSquare className="icon-reply" />
           <label>Responder</label>
         </div>
-        <div className="post-container">
+        <div className="post-icon">
           <FaPenFancy className="icon-post" />
           <label>Publicación</label>
         </div>
       </div>
-      <div className="sand-box">{posts.map((x) => console.log(x.id))}</div>
+      {Object.entries(postsList).map((item, idx) => (
+        <Posts key={idx} posts={item} />
+      ))}
     </div>
   );
 };

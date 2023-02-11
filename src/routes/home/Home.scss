@@ -1,6 +1,6 @@
 @import "../../utils/styles/constants.scss";
 
-.write-post-container {
+.write-post-icon {
   height: 20%;
   width: 55vw;
   position: relative;
@@ -13,7 +13,7 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 
-  .home-container {
+  .home-icon {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -30,10 +30,10 @@
         height: 100%;
       }
     }
-    .input-container {
+    .input-icon {
       grid-area: 1 / 1 / 2 / 4;
       width: 98%;
-      height: 55%;
+      height: 8rem;
       display: flex;
       position: fixed;
       left: 50px;
@@ -47,7 +47,7 @@
         padding: 5px;
       }
     }
-    .question-container {
+    .question-icon {
       grid-area: 2 / 1 / 3 / 2;
       display: flex;
       align-items: center;
@@ -59,7 +59,7 @@
         height: 1.5rem;
       }
     }
-    .reply-container {
+    .reply-icon {
       grid-area: 2 / 2 / 3 / 3;
       display: flex;
       align-items: center;
@@ -71,7 +71,7 @@
         height: 1.5rem;
       }
     }
-    .post-container {
+    .post-icon {
       grid-area: 2 / 3 / 3 / 4;
       display: flex;
       align-items: center;
@@ -84,15 +84,46 @@
       }
     }
   }
+  .post-container {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 0.5rem;
 
-  .sand-box {
-    border: 1px solid red;
+    .icon-user {
+      grid-area: 1 / 1 / 2 / 2;
+      height: 3rem;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .post-user {
+      grid-area: 1 / 2 / 2 / 3;
+      padding: 0.5rem 0.3rem;
+    }
+    .post-content {
+      grid-area: 2 / 1 / 3 / 3;
+      padding: 0.5rem 0.3rem;
+
+      .categories-post{
+        text-transform: uppercase;
+      }
+
+      .title-post{
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+    }
   }
 }
 
 //MOBILE
 @media (max-width: $break-mobileLarge) {
-  .write-post-container {
+  .write-post-icon {
     width: auto;
     top: 0;
     left: 0;

@@ -1,10 +1,13 @@
 import React from "react";
+import { AiOutlineUser } from "react-icons/ai";
 
 import "./Posts.scss";
 // import Axios from "axios";
 
-
-const Posts = () => {
+const Posts = ({ _, posts }) => {
+  const menuPostList = posts[0];
+  let postsLists = posts[1];
+  console.log(postsLists);
   // const [likeFill, setLikeFill] = useState(false);
   // const [likeCount, setLikeCount] = useState(likes.length);
   // const [dislikeFill, setDislikeFill] = useState(false);
@@ -128,7 +131,32 @@ const Posts = () => {
   //   });
   // }, [currentPost, currentUser, likes, dislikes]);
 
-  return <>hola</>;
+  let id = postsLists.id;
+  let [categories] = postsLists.categories;
+  let content = postsLists.content;
+  let creator = postsLists.creator;
+  let isActive = postsLists.isActive;
+  let isStudent = postsLists.isStudent;
+  let title = postsLists.title;
+
+  console.log(title);
+
+  return (
+    <div className="post-container">
+      <div class="icon-user">
+        <AiOutlineUser />
+      </div>
+      <div class="post-user">
+        <div className="name-user">Carlos Ruiz</div>
+        <div className="status-user">Estudiante - Justo Ahora</div>
+      </div>
+      <div class="post-content">
+        <div className="categories-post">{categories}</div>
+        <div className="title-post">{title}</div>
+        <div className="content-post">{content}</div>
+      </div>
+    </div>
+  );
 };
 
 export default Posts;
