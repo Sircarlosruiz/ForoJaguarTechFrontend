@@ -76,7 +76,6 @@ const Home = () => {
 
   useEffect(() => {
     let post = posts.map((x) => ({
-      id: x.id,
       isStudent: x.isStudent,
       creator: x.creator,
       categories: x.categories,
@@ -90,7 +89,7 @@ const Home = () => {
 
   return (
     <div className="write-post-icon">
-      <div className="home-icon">
+      <div className="home-container">
         <div className="icon-user">
           <AiOutlineUser className="icon-question-mark" />
         </div>

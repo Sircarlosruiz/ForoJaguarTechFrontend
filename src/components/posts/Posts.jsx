@@ -1,5 +1,11 @@
 import React from "react";
-import { AiOutlineUser } from "react-icons/ai";
+import {
+  AiOutlineUser,
+  AiFillLike,
+  AiFillDislike,
+  AiOutlineReload,
+} from "react-icons/ai";
+import { BsFillChatSquareDotsFill } from "react-icons/bs";
 
 import "./Posts.scss";
 // import Axios from "axios";
@@ -131,7 +137,6 @@ const Posts = ({ _, posts }) => {
   //   });
   // }, [currentPost, currentUser, likes, dislikes]);
 
-  let id = postsLists.id;
   let [categories] = postsLists.categories;
   let content = postsLists.content;
   let creator = postsLists.creator;
@@ -154,6 +159,16 @@ const Posts = ({ _, posts }) => {
         <div className="categories-post">{categories}</div>
         <div className="title-post">{title}</div>
         <div className="content-post">{content}</div>
+      </div>
+      <div className="action-post">
+        <div className="interaction-post">
+          <AiFillLike />
+          <AiFillDislike />
+        </div>
+        <div className="more-post">
+          <BsFillChatSquareDotsFill />
+          <AiOutlineReload />
+        </div>
       </div>
     </div>
   );
