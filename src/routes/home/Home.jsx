@@ -88,8 +88,8 @@ const Home = () => {
   }, [posts]);
 
   return (
-    <div className="write-post-icon">
       <div className="home-container">
+    <div className="write-post-icon">
         <div className="icon-user">
           <AiOutlineUser className="icon-question-mark" />
         </div>

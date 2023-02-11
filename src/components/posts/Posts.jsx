@@ -11,9 +11,8 @@ import "./Posts.scss";
 // import Axios from "axios";
 
 const Posts = ({ _, posts }) => {
-  const menuPostList = posts[0];
+  // const menuPostList = posts[0];
   let postsLists = posts[1];
-  console.log(postsLists);
   // const [likeFill, setLikeFill] = useState(false);
   // const [likeCount, setLikeCount] = useState(likes.length);
   // const [dislikeFill, setDislikeFill] = useState(false);
@@ -143,8 +142,6 @@ const Posts = ({ _, posts }) => {
   let isActive = postsLists.isActive;
   let isStudent = postsLists.isStudent;
   let title = postsLists.title;
-
-  console.log(title);
 
   return (
     <div className="post-container">
