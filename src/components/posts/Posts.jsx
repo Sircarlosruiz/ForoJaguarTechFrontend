@@ -138,9 +138,6 @@ const Posts = ({ _, posts }) => {
 
   let [categories] = postsLists.categories;
   let content = postsLists.content;
-  let creator = postsLists.creator;
-  let isActive = postsLists.isActive;
-  let isStudent = postsLists.isStudent;
   let title = postsLists.title;
 
   return (

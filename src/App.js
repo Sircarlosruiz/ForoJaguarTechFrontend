@@ -4,6 +4,10 @@ import Home from "./routes/home/Home";
 import NavigationHeader from "./routes/navigation/Navigation-Header.component";
 
 function App() {
+  const token = window.localStorage.getItem("token");
+
+  console.log(token);
+
   return (
     <Routes>
       <Route path="/" element={<NavigationHeader />}>
