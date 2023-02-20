@@ -1,6 +1,3 @@
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-
 import { createContext, useEffect, useState } from "react";
 
 // const UserContext = () => {
@@ -48,19 +45,47 @@ import { createContext, useEffect, useState } from "react";
 
 export const UserContext = createContext({
   user: {},
+  handleLogin: () => {},
+  isValid: false,
+  username: "",
+  password: "",
 });
 
 export const UserProvider = ({ children }) => {
-  const token = window.localStorage.getItem("token")
+  let tok = window.localStorage.getItem("token");
+  const [token, setToken] = useState();
   const [user, setUser] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const value = { user };
-
+  setToken(tok);
 
   useEffect(() => {
-    const setUser = async() => {
-      const response = await fetch()
-    }
-  })
+    const handleLogin = async () => {
+      const URL = "http://localhost:8000/login/";
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: token,
+        body: JSON.stringify({ username: username, password: password }),
+      })
+        .then((res) => {
+          token = `Token ${res.data.token}`;
+          window.localStorage.setItem("token", token);
+          window.localStorage.setItem("isLoggedIng", "true");
+          document.location.reload();
+        })
+        .catch((err) => {
+          console.log(err);
+          err.response.data.non_field_erros
+            ? alert(err.response.data.non_field_errors)
+            : console.log("credentials are okay");
+        });
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+      const users = await response.json();
+      setUser(users);
+    };
+    // handleLogin();
+  }, []);
+
+      return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
