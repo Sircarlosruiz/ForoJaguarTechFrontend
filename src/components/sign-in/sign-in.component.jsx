@@ -56,13 +56,13 @@ const SignIn = () => {
     <div className="login">
       <img src={backgroungImg} alt="logo" className="backgroung-img" />
       <div className="login-form">
-        <div className="top-form">
+        <div className="header-form">
           <p className="tittle-form">JaguarTech</p>
           <p className="subtittle-form">
             Un lugar para compartir conocimientos y entender mejor tus clases
           </p>
         </div>
-        <div className="left-form">
+        <div className="body-form">
           <p className="condition-text">
             Al continuar indicas que aceptas las condiciones de sevicio y la
             politica de privacidad de JaguarTech.
@@ -81,8 +81,7 @@ const SignIn = () => {
           >
             Registrate con el correo electronico
           </p>
-        </div>
-        <div className="right-form">
+
           <p className="login-text">Iniciar Sesion</p>
 
           <div className="email-form">
@@ -113,7 +112,6 @@ const SignIn = () => {
               onClick={handleLogin}
             ></input>
           </div>
-
           <div className="sesion-closed">
             <p>
               Has cerrado sesion en este navegador pero sigues conectado con
