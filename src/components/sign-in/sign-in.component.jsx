@@ -58,30 +58,11 @@ const SignIn = () => {
       <div className="login-form">
         <div className="header-form">
           <p className="tittle-form">JaguarTech</p>
-          <p className="subtittle-form">
+          <p className="subtitle-form">
             Un lugar para compartir conocimientos y entender mejor tus clases
           </p>
         </div>
         <div className="body-form">
-          <p className="condition-text">
-            Al continuar indicas que aceptas las condiciones de sevicio y la
-            politica de privacidad de JaguarTech.
-          </p>
-          <div className="google-form">
-            <FcGoogle className="google-icon" />
-            <p className="google-text">Continuar con Google</p>
-          </div>
-          <div className="facebook-form">
-            <FaFacebook className="facebook-icon" />
-            <p className="facebook-text">Continuar con Facebook</p>
-          </div>
-          <p
-            onClick={() => setShowRegisterModal(!showRegisterModal)}
-            className="email-login"
-          >
-            Registrate con el correo electronico
-          </p>
-
           <p className="login-text">Iniciar Sesion</p>
 
           <div className="email-form">
@@ -112,6 +93,26 @@ const SignIn = () => {
               onClick={handleLogin}
             ></input>
           </div>
+
+          <p className="condition-text">
+            Al continuar indicas que aceptas las condiciones de sevicio y la
+            politica de privacidad de JaguarTech.
+          </p>
+          <div className="google-form">
+            <FcGoogle className="google-icon" />
+            <p className="google-text">Continuar con Google</p>
+          </div>
+          <div className="facebook-form">
+            <FaFacebook className="facebook-icon" />
+            <p className="facebook-text">Continuar con Facebook</p>
+          </div>
+          <p
+            onClick={() => setShowRegisterModal(!showRegisterModal)}
+            className="email-login"
+          >
+            Registrate con el correo electronico
+          </p>
+
           <div className="sesion-closed">
             <p>
               Has cerrado sesion en este navegador pero sigues conectado con
