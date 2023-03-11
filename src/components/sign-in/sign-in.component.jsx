@@ -79,10 +79,24 @@ const SignIn = () => {
                 className="password-input"
               ></input>
             </div>
-            
+
+
+            <div className="sesion-closed">
+            <p>
+              Has cerrado sesion en este navegador pero sigues conectado con
+              otros navegadores
+            </p>
+            <a href="/">Cerrar sesion en todos los navegadores</a>
+          </div>
+
           </div>
 
           <p className="forgot-password">¿Has olvidado la contraseña?</p>
+
+          <p className="condition-text">
+            Al continuar indicas que aceptas las condiciones de sevicio y la
+            politica de privacidad de JaguarTech.
+          </p>
 
           <div className="social-login">
             <div className="google-form">
@@ -102,22 +116,9 @@ const SignIn = () => {
             onClick={handleLogin}
           ></input>
 
-          <p className="condition-text">
-            Al continuar indicas que aceptas las condiciones de sevicio y la
-            politica de privacidad de JaguarTech.
-          </p>
-
           <Link to={"/sign-up"}>
             <p className="email-login">Registrate con el correo electronico</p>
           </Link>
-
-          <div className="sesion-closed">
-            <p>
-              Has cerrado sesion en este navegador pero sigues conectado con
-              otros navegadores
-            </p>
-            <a href="/">Cerrar sesion en todos los navegadores</a>
-          </div>
 
         </div>
 
