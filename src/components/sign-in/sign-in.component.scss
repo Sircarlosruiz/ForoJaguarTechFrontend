@@ -1,6 +1,6 @@
-@import '../../utils/styles/constants.scss';
-.darken{
-  background-color: rgba(0,0,0,0.8);
+@import "../../utils/styles/constants.scss";
+.darken {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .login {
@@ -22,20 +22,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-
     .header-form {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 1rem;
-  
-      .tittle-form {
+
+      .title-form {
         font-size: 2rem;
         font-weight: 600;
         color: #333;
         margin-bottom: 10px;
       }
-  
+
       .subtittle-form {
         font-size: 1rem;
         font-weight: 600;
@@ -44,58 +43,56 @@
       }
     }
 
-    .body-form{
-      
-  
-  
-      
-      .condition-text {
-  
-      }
-  
-      .google-form {
-        border: 1px solid rgb(121, 121, 121);
-        margin-bottom: 10px;
+    .body-form {
+
+      .social-login {
         display: flex;
+        justify-content: space-evenly;
         align-items: center;
-        padding-left: 10px;
-        height: 3rem;
-  
-        .google-icon {
-          width: 25px;
-          height: 25px;
-          margin-right: 10px;
+
+        .google-form {
+          width: 45%;
+          border: 1px solid rgb(121, 121, 121);
+          display: flex;
+          align-items: center;
+          height: 3rem;
+
+          .google-icon {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+          }
+
+          .google-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0;
+          }
         }
-  
-        .google-text {
-          font-size: 1rem;
-          font-weight: 500;
-          color: #333;
-          margin-bottom: 0;
+
+        .facebook-form {
+          width: 48%;
+          border: 1px solid rgb(121, 121, 121);
+          display: flex;
+          align-items: center;
+          height: 3rem;
+
+          .facebook-icon {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+          }
+
+          .facebook-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0;
+          }
         }
       }
-  
-      .facebook-form {
-        border: 1px solid rgb(121, 121, 121);
-        display: flex;
-        align-items: center;
-        padding-left: 10px;
-        height: 3rem;
-  
-        .facebook-icon {
-          width: 25px;
-          height: 25px;
-          margin-right: 10px;
-        }
-  
-        .facebook-text {
-          font-size: 1rem;
-          font-weight: 500;
-          color: #333;
-          margin-bottom: 0;
-        }
-      }
-  
+
       .email-login {
         text-align: center;
         margin-top: 10px;
@@ -103,86 +100,92 @@
         font-weight: 600;
         color: rgb(121, 121, 121);
       }
-  
+
       .email-login:hover {
         color: rgb(16, 94, 184);
         border-bottom: 1px solid rgb(16, 94, 184);
       }
-  
-      
-      .login-text {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 10px;
-        border-bottom: 1px solid rgb(121, 121, 121);
-      }
-  
-      .email-form {
-        margin-top: 20px;
-        margin-bottom: 20px;
-  
-        .email-text {
-          font-size: 0.8rem;
-          font-weight: bold;
+
+      .login-action{
+
+        .login-text {
+          font-size: 1rem;
+          font-weight: 600;
           color: #333;
-          margin-bottom: 5px;
+          margin-bottom: 10px;
+          border-bottom: 1px solid rgb(121, 121, 121);
         }
   
         .email-input {
-          width: 100%;
-          height: 2.2rem;
-          border: 1px solid rgb(121, 121, 121);
-          border-radius: 5px;
-          padding-left: 10px;
-        }
-      }
+          margin-top: 20px;
+          margin-bottom: 20px;
   
-      .password-form {
-        margin-bottom: 20px;
+          .email-text {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+          }
   
-        .password-text {
-          font-size: 0.8rem;
-          font-weight: bold;
-          color: #333;
-          margin-bottom: 5px;
+          .email-input {
+            width: 100%;
+            height: 2.2rem;
+            border: 1px solid rgb(121, 121, 121);
+            border-radius: 5px;
+            padding-left: 10px;
+          }
         }
   
         .password-input {
-          width: 100%;
-          height: 2.2rem;
-          border: 1px solid rgb(121, 121, 121);
-          border-radius: 5px;
-          padding-left: 10px;
-        }
-      }
+          margin-bottom: 20px;
   
-      .action-form {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+          .password-text {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+          }
+  
+          .password-input {
+            width: 100%;
+            height: 2.2rem;
+            border: 1px solid rgb(121, 121, 121);
+            border-radius: 5px;
+            padding-left: 10px;
+          }
+        }
+
+      }
+
+      .forgot-password {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: rgb(121, 121, 121);
+        margin-bottom: 0px;
+      }
+
+      .btn-login {
+        width: 100%;
+        height: 2.2rem;
+        border: 1px solid rgb(121, 121, 121);
+        border-radius: 5px;
+        background-color: rgb(121, 121, 121);
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
         margin-bottom: 10px;
-  
-        .forgot-password {
-          font-size: 0.7rem;
-          font-weight: 600;
-          color: rgb(121, 121, 121);
-          margin-bottom: 0px;
-        }
-  
-        .btn-login {
-          width: 45%;
-          height: 2.2rem;
-          border: 1px solid rgb(121, 121, 121);
-          border-radius: 5px;
-          background-color: rgb(121, 121, 121);
-          color: white;
-          font-size: 1rem;
-          font-weight: 600;
-          cursor: pointer;
-        }
       }
-  
+
+      .btn-login,
+      .forgot-password {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
       .sesion-closed {
         text-align: center;
         font-size: 0.7rem;
@@ -192,19 +195,16 @@
         padding: 10px;
         border-radius: 5px;
       }
-  
+
       a {
         text-decoration: none;
       }
-  
-  
+
     }
-  
+
     .footer-form {
       background-color: #333;
-  
-  
-  
+
       .footer-text {
         font-size: 0.68rem;
         font-weight: 600;
@@ -213,81 +213,51 @@
         margin-bottom: 0px;
       }
     }
-
-  }
-
-  .modal-container {
-    position: absolute;
-    top: 12rem;
-    left: 16rem;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 0 9999px #000000b0;
-  }
-
-  .register {
-    background-color: white;
-    width: 50vw;
-    padding: 0.5rem;
-
-    .title-register {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 0;
-    }
-
-    input {
-      width: 100%;
-      height: 2.2rem;
-      border: 1px solid rgb(121, 121, 121);
-      border-radius: 5px;
-      padding-left: 10px;
-      margin-bottom: 10px;
-    }
-
-    .register-btn {
-      width: 100%;
-      height: 2.2rem;
-      border: 1px solid rgb(121, 121, 121);
-      border-radius: 5px;
-      background-color: rgb(121, 121, 121);
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
   }
 
   /*Mobile*/
-  @media(max-width: $break-mobileLarge){
-
+  @media (max-width: $break-mobileLarge) {
     border: 1px solid red;
 
-    .login-form{
+    .login-form {
       width: 100vw;
       height: 100vh;
       padding: 2rem 1rem;
 
-      .header-form{
+      .header-form {
         padding: 3rem 0;
-        .subtitle-form{
+        .subtitle-form {
           display: none;
         }
       }
 
-      .body-form{
+      .body-form {
 
-        .condition-text{
+        .forgot-password{
+          margin-bottom: 1rem;
+        }
+        .social-login {
+          .google-form,
+          .facebook-form {
+            width: 15%;
+            border: 0;
+            margin-bottom: .5rem;
+
+            .google-icon,
+            .facebook-icon {
+              width: 100%;
+              height: 100%;
+              margin: 0;
+            }
+
+
+            .google-text,
+            .facebook-text {
+              display: none;
+            }
+          }
+        }
+        .condition-text {
           display: none;
         }
       }
