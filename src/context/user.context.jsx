@@ -1,45 +1,95 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 
-const UserContext = () => {
+// const UserContext = () => {
+//   const token = window.localStorage.getItem("token");
+//   const [isValid, setIsValid] = useState(null);
+//   const [loggedUser, setLoggedUser] = useState({});
+//   const [categories, setCategories] = useState([]);
+//   const [catArray, setCatArray] = useState([]);
+
+//   useEffect(() => {
+//     axios
+//       .get("http://localhost:8000/user/", {
+//         headers: {
+//           Authorization: token,
+//         },
+//       })
+//       .then(function (response) {
+//         const user = response.data.user_info;
+//         // const id = response.data.user_info.id
+//         setLoggedUser(user);
+//         setIsValid(true);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//         window.localStorage.removeItem("token");
+//         window.localStorage.removeItem("isLoggedIn");
+//         setLoggedUser({});
+//         setIsValid(false);
+//       });
+
+//     // fetching all categories
+//     axios
+//       .get("http://localhost:8000/all-categories")
+//       .then(function (response) {
+//         setCategories(response.data);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+//   }, [token]);
+//   return <></>;
+// };
+
+// export default UserContext;
+
+import { createContext, useEffect, useState } from "react";
+
+export const UserContext = createContext({
+  users: [],
+  isValid: false,
+  loggedUser: () => {},
+  login: () => {},
+});
+
+export const UserProvider = ({ children }) => {
   const token = window.localStorage.getItem("token");
-  const [isValid, setIsValid] = useState(null);
-  const [loggedUser, setLoggedUser] = useState({});
-  const [categories, setCategories] = useState([]);
-  const [catArray, setCatArray] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [isValid, setIsValid] = useState(false);
+  const [login, setLogin] = useState({})
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/user/", {
+    const getUser = async () => {
+      const response = await fetch("http://localhost:8000/user/", {
         headers: {
           Authorization: token,
         },
-      })
-      .then(function (response) {
-        const user = response.data.user_info;
-        // const id = response.data.user_info.id
-        setLoggedUser(user);
-        setIsValid(true);
-      })
-      .catch(function (error) {
-        console.log(error);
-        window.localStorage.removeItem("token");
-        window.localStorage.removeItem("isLoggedIn");
-        setLoggedUser({});
-        setIsValid(false);
       });
+      const users = await response.json();
+      setUsers(users);
+    };
 
-    // fetching all categories
-    axios
-      .get("http://localhost:8000/all-categories")
-      .then(function (response) {
-        setCategories(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    const postLogin = async () => {
+      const response = await fetch("http://localhost:8000/login/", {
+        method: "POST",
       });
-  }, [token]);
-  return <></>;
+      const login = await response.json();
+      setLogin(login);
+    }
+    postLogin();
+  }, []);
+
+  const value = {
+    token,
+    users,
+    isValid,
+    login,
+  };
+
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
-
-export default UserContext;

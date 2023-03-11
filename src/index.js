@@ -5,16 +5,19 @@ import "./index.css";
 import App from "./App";
 import { CategoriesProvider } from "./context/category.context";
 import { PostProvider } from "./context/post.context";
+import { UserProvider } from "./context/user.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CategoriesProvider>
-        <PostProvider>
-          <App />
-        </PostProvider>
-      </CategoriesProvider>
+      <UserProvider>
+        <CategoriesProvider>
+          <PostProvider>
+            <App />
+          </PostProvider>
+        </CategoriesProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
