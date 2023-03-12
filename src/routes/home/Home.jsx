@@ -91,7 +91,6 @@ const Home = () => {
 
   return (
     <div className="navigation-container">
-      <NavigationHeader />
       <div className="home-container">
         <div className="write-post-icon">
           <div className="icon-user">
