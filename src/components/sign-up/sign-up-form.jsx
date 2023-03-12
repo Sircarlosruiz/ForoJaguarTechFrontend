@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import "./sign-up-form.scss";
+
 const SignUp = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -51,9 +53,9 @@ const SignUp = () => {
 
   return (
     <div className="register">
-      <p className="title-register">Registrarse</p>
+      <p className="title">Registrarse</p>
 
-      <div className="register-form">
+      <div className="form">
         <p>Primer Nombre</p>
         <input
           onChange={(e) => setName(e.target.value)}
@@ -95,11 +97,11 @@ const SignUp = () => {
           type="password"
           placeholder="********"
         ></input>
-
-        <button onClick={handleRegister} className="register-btn">
-          Siguiente
-        </button>
       </div>
+
+      <button onClick={handleRegister} className="btn">
+        Siguiente
+      </button>
     </div>
   );
 };
