@@ -47,7 +47,6 @@ const SignIn = () => {
     <div className="login">
       <img src={backgroungImg} alt="logo" className="backgroung-img" />
       <div className="login-form">
-
         <div className="header-form">
           <p className="title-form">JaguarTech</p>
           <p className="subtitle-form">
@@ -56,9 +55,7 @@ const SignIn = () => {
         </div>
 
         <div className="body-form">
-
           <div className="login-action">
-
             <p className="login-text">Iniciar Sesion</p>
 
             <div className="email-input">
@@ -80,25 +77,29 @@ const SignIn = () => {
               ></input>
             </div>
 
-
             <div className="sesion-closed">
-            <p>
-              Has cerrado sesion en este navegador pero sigues conectado con
-              otros navegadores
-            </p>
-            <a href="/">Cerrar sesion en todos los navegadores</a>
+              <p>
+                Has cerrado sesion en este navegador pero sigues conectado con
+                otros navegadores
+              </p>
+              <a href="/">Cerrar sesion en todos los navegadores</a>
+            </div>
+
+            <p className="forgot-password">¿Has olvidado la contraseña?</p>
+
+            <input
+              className="btn-login"
+              type="button"
+              value="Iniciar Sesion"
+              onClick={handleLogin}
+            ></input>
           </div>
-
-          </div>
-
-          <p className="forgot-password">¿Has olvidado la contraseña?</p>
-
-          <p className="condition-text">
-            Al continuar indicas que aceptas las condiciones de sevicio y la
-            politica de privacidad de JaguarTech.
-          </p>
 
           <div className="social-login">
+            <p className="condition-text">
+              Al continuar indicas que aceptas las condiciones de sevicio y la
+              politica de privacidad de JaguarTech.
+            </p>
             <div className="google-form">
               <FcGoogle className="google-icon" />
               <p className="google-text">Continuar con Google</p>
@@ -107,19 +108,12 @@ const SignIn = () => {
               <FaFacebook className="facebook-icon" />
               <p className="facebook-text">Continuar con Facebook</p>
             </div>
+            <Link to={"/sign-up"}>
+              <p className="email-login">
+                Registrate con el correo electronico
+              </p>
+            </Link>
           </div>
-
-          <input
-            className="btn-login"
-            type="button"
-            value="Iniciar Sesion"
-            onClick={handleLogin}
-          ></input>
-
-          <Link to={"/sign-up"}>
-            <p className="email-login">Registrate con el correo electronico</p>
-          </Link>
-
         </div>
 
         <div className="footer-form">
