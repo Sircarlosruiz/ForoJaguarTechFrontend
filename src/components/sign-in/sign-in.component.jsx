@@ -1,4 +1,5 @@
-import { useState, useRef, useCallback } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
@@ -14,14 +15,6 @@ import "./sign-in.component.scss";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
-
-  const registerModalRef = useRef();
-
-  const hideRegisterModal = useCallback(({ target }) => {
-    if (target.closest(".link")) return;
-    setShowRegisterModal(false);
-  }, []);
 
   const handleLogin = () => {
     console.log({
@@ -50,41 +43,50 @@ const SignIn = () => {
       });
   };
 
-  useOnClickOutside(registerModalRef, hideRegisterModal);
   return (
     <div className="login">
       <img src={backgroungImg} alt="logo" className="backgroung-img" />
       <div className="login-form">
         <div className="header-form">
-          <p className="tittle-form">JaguarTech</p>
+          <p className="title-form">JaguarTech</p>
           <p className="subtitle-form">
             Un lugar para compartir conocimientos y entender mejor tus clases
           </p>
         </div>
+
         <div className="body-form">
-          <p className="login-text">Iniciar Sesion</p>
+          <div className="login-action">
+            <p className="login-text">Iniciar Sesion</p>
 
-          <div className="email-form">
-            <p className="email-text">Correo electronico</p>
-            <input
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="email-input"
-            ></input>
-          </div>
+            <div className="email-input">
+              <p className="email-text">Correo electronico</p>
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="email-input"
+              ></input>
+            </div>
 
-          <div className="password-form">
-            <p className="password-text">Contraseña</p>
-            <input
-              value={password}
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              className="password-input"
-            ></input>
-          </div>
+            <div className="password-input">
+              <p className="password-text">Contraseña</p>
+              <input
+                value={password}
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                className="password-input"
+              ></input>
+            </div>
 
-          <div className="action-form">
+            <div className="sesion-closed">
+              <p>
+                Has cerrado sesion en este navegador pero sigues conectado con
+                otros navegadores
+              </p>
+              <a href="/">Cerrar sesion en todos los navegadores</a>
+            </div>
+
             <p className="forgot-password">¿Has olvidado la contraseña?</p>
+
             <input
               className="btn-login"
               type="button"
@@ -93,33 +95,27 @@ const SignIn = () => {
             ></input>
           </div>
 
-          <p className="condition-text">
-            Al continuar indicas que aceptas las condiciones de sevicio y la
-            politica de privacidad de JaguarTech.
-          </p>
-          <div className="google-form">
-            <FcGoogle className="google-icon" />
-            <p className="google-text">Continuar con Google</p>
-          </div>
-          <div className="facebook-form">
-            <FaFacebook className="facebook-icon" />
-            <p className="facebook-text">Continuar con Facebook</p>
-          </div>
-          <p
-            onClick={() => setShowRegisterModal(!showRegisterModal)}
-            className="email-login"
-          >
-            Registrate con el correo electronico
-          </p>
-
-          <div className="sesion-closed">
-            <p>
-              Has cerrado sesion en este navegador pero sigues conectado con
-              otros navegadores
+          <div className="social-login">
+            <p className="condition-text">
+              Al continuar indicas que aceptas las condiciones de sevicio y la
+              politica de privacidad de JaguarTech.
             </p>
-            <a href="/">Cerrar sesion en todos los navegadores</a>
+            <div className="google-form">
+              <FcGoogle className="google-icon" />
+              <p className="google-text">Continuar con Google</p>
+            </div>
+            <div className="facebook-form">
+              <FaFacebook className="facebook-icon" />
+              <p className="facebook-text">Continuar con Facebook</p>
+            </div>
+            <Link to={"/sign-up"}>
+              <p className="email-login">
+                Registrate con el correo electronico
+              </p>
+            </Link>
           </div>
         </div>
+
         <div className="footer-form">
           <p className="footer-text">
             Sobre este espacio - Empleo - Privacidad - Condiciones - Contacto -
@@ -127,12 +123,6 @@ const SignIn = () => {
           </p>
         </div>
       </div>
-      <ModalContainer
-        show={showRegisterModal}
-        modalRef={registerModalRef}
-        component={<SignUp />}
-        className={"modal-container darken"}
-      />
     </div>
   );
 };
