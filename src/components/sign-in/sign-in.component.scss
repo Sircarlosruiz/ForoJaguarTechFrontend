@@ -197,15 +197,24 @@
       }
     }
   }
+}
 
   /*Mobile*/
   @media (max-width: $break-mobileLarge) {
-    border: 1px solid red;
+    .login{
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+
+      img{
+        display: none;
+      }
+    
 
     .login-form {
       width: 100vw;
       height: 100vh;
-      padding: 2rem 1rem;
+      padding: 2rem;
 
       .header-form {
         padding: 3rem 0;
@@ -215,6 +224,7 @@
       }
 
       .body-form {
+        flex-direction: column;
         .login-action {
           .forgot-password {
             margin-bottom: 1rem;
@@ -226,6 +236,8 @@
         }
 
         .social-login {
+          flex-direction: row;
+
           .google-form,
           .facebook-form {
             width: 15%;
@@ -243,6 +255,14 @@
             .facebook-text {
               display: none;
             }
+          }
+
+          .email-login{
+            margin-bottom: 0;
+            text-align: justify;
+            font-size: .8rem;
+            font-weight: 600;
+            text-decoration: underline;
           }
         }
         .condition-text {

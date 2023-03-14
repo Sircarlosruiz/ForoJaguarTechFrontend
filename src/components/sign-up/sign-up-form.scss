@@ -51,14 +51,11 @@
         font-weight: 600;
         cursor: pointer;
     }
+}
 
     @media (max-width: $break-mobileLarge) {
         .form{
             width: 100%;
         }
-        .btn{
-            width: 50%;
-        }
     }
         
-    }
