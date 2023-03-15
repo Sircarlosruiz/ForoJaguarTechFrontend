@@ -8,8 +8,8 @@ function App() {
     <Routes>
       <Route exact path="/" element={<NavigationHeader />}>
         <Route index element={<Home />} />
-        <Route path="/sign-up" element={<Auth showSignUp />} />
-        <Route path="/sign-in" element={<Auth showSignIn />} />
+        <Route path="sign-up" element={<Auth showSignUp />} />
+        <Route path="sign-in" element={<Auth showSignIn />} />
       </Route>
     </Routes>
   );
