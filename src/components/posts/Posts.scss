@@ -1,0 +1,105 @@
+@import "../../utils/styles/constants.scss";
+
+.post-container {
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(17px);
+  -webkit-backdrop-filter: blur(17px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin: 10px 0;
+
+  .header-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .icon-user {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 10px;
+      border: 2px solid black;
+
+      svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .post-user {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+      .name-user {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+      .status-user {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .post-content {
+    margin: 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    .categories-post {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+
+      .title-post {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .content-post {
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .action-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+
+    .interaction-post {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    .more-post {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
+
+/*Mobile*/
+@media (max-width: $break-mobileLarge) {
+  .post-container {
+    height: auto;
+  }
+}

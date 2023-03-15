@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import Posts from "../../components/posts/Posts";
-import NavigationHeader from "../../routes/navigation/Navigation-Header.component";
 
 import { AiOutlineUser, AiOutlineQuestion } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
@@ -8,7 +7,6 @@ import { FaPenFancy } from "react-icons/fa";
 import { PostContext } from "../../context/post.context";
 
 import "./Home.scss";
-import { Outlet } from "react-router-dom";
 
 const Home = () => {
   const [postsList, setpostsList] = useState([]);

@@ -142,12 +142,14 @@ const Posts = ({ _, posts }) => {
 
   return (
     <div className="post-container">
-      <div class="icon-user">
-        <AiOutlineUser />
-      </div>
-      <div class="post-user">
-        <div className="name-user">Carlos Ruiz</div>
-        <div className="status-user">Estudiante - Justo Ahora</div>
+      <div className="header-post">
+        <div class="icon-user">
+          <AiOutlineUser />
+        </div>
+        <div class="post-user">
+          <div className="name-user">Carlos Ruiz</div>
+          <div className="status-user">Estudiante - Justo Ahora</div>
+        </div>
       </div>
       <div class="post-content">
         <div className="categories-post">{categories}</div>
