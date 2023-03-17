@@ -6,8 +6,8 @@ export const PostContext = createContext({
 
 export const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
-  const value = { posts };
-
+  let value = [];
+  
   useEffect(() => {
     const getPosts = async() => {
       const response = await fetch("http://localhost:8000/all-posts");
@@ -20,6 +20,11 @@ export const PostProvider = ({ children }) => {
 
     getPosts();
   }, []);
+
+  value = ({
+    posts,
+  })
+
 
   return <PostContext.Provider value={value}>{children}</PostContext.Provider>;
 };
