@@ -44,7 +44,7 @@
 
 // export default UserContext;
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext({
   users: [],
@@ -54,42 +54,19 @@ export const UserContext = createContext({
 });
 
 export const UserProvider = ({ children }) => {
-  const token = window.localStorage.getItem("token");
-  const [users, setUsers] = useState([]);
-  const [isValid, setIsValid] = useState(false);
-  const [login, setLogin] = useState({})
+  const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await fetch("http://localhost:8000/user/", {
-        headers: {
-          Authorization: token,
-        },
-      });
-      const users = await response.json();
-      setUsers(users);
-    };
+  // useEffect(() => {
 
-    getUser();
-  }, []);
+  //   return () => {
+      
+  //   }
+  // }, [user])
+  
 
-  useEffect(() => {
-    const postLogin = async () => {
-      const response = await fetch("http://localhost:8000/login/", {
-        method: "POST",
-      });
-      const login = await response.json();
-      setLogin(login);
-    }
-    postLogin();
-  }, []);
-
-  const value = {
-    token,
-    users,
-    isValid,
-    login,
-  };
+  const value = ({
+    user
+  })
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

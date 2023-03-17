@@ -1,20 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useOnClickOutside } from "../utils/helpers";
+
+import { UserContext } from "../../context/user.context";
 
 import backgroungImg from "../../assets/logo.png";
-
-import ModalContainer from "../modal-container/modal-container.component";
-import SignUp from "../sign-up/sign-up-form";
 
 import "./sign-in.component.scss";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const {login} = useContext(UserContext)
+
+  console.log(login());
 
   const handleLogin = () => {
     console.log({
