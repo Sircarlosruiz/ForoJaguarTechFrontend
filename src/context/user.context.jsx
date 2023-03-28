@@ -44,7 +44,7 @@
 
 // export default UserContext;
 
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 
 export const UserContext = createContext({
   users: [],
@@ -54,7 +54,6 @@ export const UserContext = createContext({
 });
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState([]);
 
   // useEffect(() => {
 
@@ -65,7 +64,6 @@ export const UserProvider = ({ children }) => {
   
 
   const value = ({
-    user
   })
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

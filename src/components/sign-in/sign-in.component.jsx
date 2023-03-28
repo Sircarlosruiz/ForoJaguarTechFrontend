@@ -16,7 +16,7 @@ const SignIn = () => {
 
   const {login} = useContext(UserContext)
 
-  console.log(login());
+  console.log(login);
 
   const handleLogin = () => {
     console.log({
