@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import {useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { FcGoogle } from "react-icons/fc";
@@ -14,9 +14,6 @@ const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const {login} = useContext(UserContext)
-
-  console.log(login);
 
   const handleLogin = () => {
     console.log({

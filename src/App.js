@@ -9,8 +9,12 @@ function App() {
 
   return (
     <Routes>
-      <Route exact path="/" element={isLoggedIn ? <NavigationHeader /> : null}>
-        <Route index element={isLoggedIn ? <Home /> : <Auth showSignIn />} />
+      <Route
+        exact
+        path="/"
+        element={isLoggedIn ? <NavigationHeader /> : <Auth showSignIn />}
+      >
+        <Route index element={<Home />} />
         <Route path="/sign-up" element={<Auth showSignUp={setIsLoggedIn} />} />
         <Route path="/sign-in" element={<Auth showSignIn={setIsLoggedIn} />} />
       </Route>
