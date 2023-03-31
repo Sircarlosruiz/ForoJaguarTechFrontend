@@ -4,9 +4,7 @@ import Axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
-import { UserContext } from "../../context/user.context";
-
-import backgroungImg from "../../assets/logo.png";
+// import backgroungImg from "../../assets/logo.png";
 
 import "./sign-in.component.scss";
 
@@ -44,7 +42,7 @@ const SignIn = () => {
 
   return (
     <div className="login">
-      <img src={backgroungImg} alt="logo" className="backgroung-img" />
+      {/* <img src={backgroungImg} alt="logo" className="backgroung-img" /> */}
       <div className="login-form">
         <div className="header-form">
           <p className="title-form">JaguarTech</p>
