@@ -29,17 +29,17 @@ const firebaseConfig = {
 export const firebaseApp = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(firebaseApp);
 
-
 const googleProvider = new GoogleAuthProvider();
 // const facebookProvider = new FacebookAuthProvider();
 
 googleProvider.setCustomParameters({
-    prompt: "select_account",
-})
+  prompt: "select_account",
+});
 
 // Auth Providers
 export const auth = getAuth(firebaseApp);
-export const signInUserWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+export const signInUserWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
 // export const signInUserWithFacebookPopup = () => signInWithPopup(auth, facebookProvider);
 
 //firestore connection
@@ -47,25 +47,45 @@ export const db = () => getFirestore();
 
 // Firestore Functions
 export const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {
-    if (!userAuth) return;
+  if (!userAuth) return;
 
-    const userDocRef = doc(db(), "users", userAuth.uid);
-    const userData = await getDoc(userDocRef);
+  const userDocRef = doc(db(), "users", userAuth.uid);
+  const userData = await getDoc(userDocRef);
 
-    if (!userData.exists()) {
-        const { email } = userAuth;
-        const createAt = new Date();
+  if (!userData.exists()) {
+    const { email } = userAuth;
+    const createAt = new Date();
 
-        try {
-            await setDoc(userDocRef, {
-                email,
-                createAt,
-                ...additionalInfo,
-            })
-        } catch (error) {
-            console.log("Error: ", error.message);
-        }
+    try {
+      await setDoc(userDocRef, {
+        email,
+        createAt,
+        ...additionalInfo,
+      });
+    } catch (error) {
+      console.log("Error: ", error.message);
     }
+  }
 
-    return userDocRef;
+  return userDocRef;
 };
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInUserWithEmailAndPassword = async(email, password) => {
+    if (!email || !password) return;
+    return await signInWithEmailAndPassword(auth, email, password);
+};
+
+export const logOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChangedListener(auth, callback);
+
+export const FIREBASE_ERROR_CODES = {
+    NOT_FOUND: "auth/user-not-found",
+    WRONG_PASSWORD: "auth/wrong-password",
+    NOT_ALLOWED: "auth/operation-not-allowed",
+  };
