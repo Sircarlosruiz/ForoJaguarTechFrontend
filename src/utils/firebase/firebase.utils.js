@@ -5,11 +5,11 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,7 +31,7 @@ export const analytics = getAnalytics(firebaseApp);
 
 
 const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+// const facebookProvider = new FacebookAuthProvider();
 
 googleProvider.setCustomParameters({
     prompt: "select_account",
@@ -40,5 +40,32 @@ googleProvider.setCustomParameters({
 // Auth Providers
 export const auth = getAuth(firebaseApp);
 export const signInUserWithGooglePopup = () => signInWithPopup(auth, googleProvider);
-export const signInUserWithFacebookPopup = () => signInWithPopup(auth, facebookProvider);
+// export const signInUserWithFacebookPopup = () => signInWithPopup(auth, facebookProvider);
 
+//firestore connection
+export const db = () => getFirestore();
+
+// Firestore Functions
+export const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {
+    if (!userAuth) return;
+
+    const userDocRef = doc(db(), "users", userAuth.uid);
+    const userData = await getDoc(userDocRef);
+
+    if (!userData.exists()) {
+        const { email } = userAuth;
+        const createAt = new Date();
+
+        try {
+            await setDoc(userDocRef, {
+                email,
+                createAt,
+                ...additionalInfo,
+            })
+        } catch (error) {
+            console.log("Error: ", error.message);
+        }
+    }
+
+    return userDocRef;
+};
