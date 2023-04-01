@@ -1,43 +1,74 @@
-import {useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import "./sign-in.component.scss";
+
+import {
+  signInUserWithEmailAndPassword,
+  signInUserWithGooglePopup,
+  createUserDocFromAuth,
+  FIREBASE_ERROR_CODES,
+} from "../../utils/firebase/firebase.utils";
+
+const defaultFormFields = {
+  email: "",
+  password: "",
+};
+
+const { NOT_ALLOWED, NOT_FOUND, WRONG_PASSWORD } = FIREBASE_ERROR_CODES;
 
 // import backgroungImg from "../../assets/logo.png";
 
-import "./sign-in.component.scss";
+const SignIn = ({ className, hideModal, setCurrentUser }) => {
+  const isAuthPage = window.location.pathname.includes("sign-up");
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { email, password } = formFields;
 
-const SignIn = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-
-  const handleLogin = () => {
-    console.log({
-      username: username,
-      password: password,
-    });
-    if (!username || !password) {
-      alert("No blanks!");
-      return;
+  const logUserGooglePopUp = async () => {
+    try {
+      const userAuth = await signInUserWithGooglePopup();
+      await createUserDocFromAuth(userAuth.user);
+    } catch (error) {
+      switch (error.code) {
+        case NOT_FOUND:
+          alert("NOT_FOUND");
+          break;
+        case WRONG_PASSWORD:
+          alert("WRONG PASS");
+          break;
+        case NOT_ALLOWED:
+          alert("YOU SHALL NOT PASS");
+          break;
+        default:
+          console.log(error);
+      }
     }
-    Axios.post("http://localhost:8000/login/", {
-      username: username,
-      password: password,
-    })
-      .then(function (response) {
-        const token = `Token ${response.data.token}`;
-        window.localStorage.setItem("token", token);
-        window.localStorage.setItem("isLoggedIn", "true");
-        document.location.reload();
-      })
-      .catch(function (error) {
-        console.log(error);
-        error.response.data.non_field_errors
-          ? alert(error.response.data.non_field_errors)
-          : console.log("credentials are okay");
-      });
+  };
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const user = await signInUserWithEmailAndPassword(email, password);
+      setCurrentUser(user);
+    } catch (error) {
+      switch (error.code) {
+        case NOT_FOUND:
+          alert("NOT_FOUND");
+          break;
+        case WRONG_PASSWORD:
+          alert("WRONG PASS");
+          break;
+        default:
+          console.log(error);
+      }
+    }
+    setFormFields(defaultFormFields);
   };
 
   return (
@@ -53,13 +84,11 @@ const SignIn = () => {
 
         <div className="body-form">
           <div className="login-action">
-            <p className="login-text">Iniciar Sesion</p>
-
             <div className="email-input">
               <p className="email-text">Correo electronico</p>
               <input
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                // value={username}
+                // onChange={(e) => setUsername(e.target.value)}
                 className="email-input"
               ></input>
             </div>
@@ -67,9 +96,9 @@ const SignIn = () => {
             <div className="password-input">
               <p className="password-text">Contraseña</p>
               <input
-                value={password}
+                // value={password}
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
+                // onChange={(e) => setPassword(e.target.value)}
                 className="password-input"
               ></input>
             </div>
@@ -88,7 +117,7 @@ const SignIn = () => {
               className="btn-login"
               type="button"
               value="Iniciar Sesion"
-              onClick={handleLogin}
+              // onClick={handleLogin}
             ></input>
           </div>
 
@@ -97,19 +126,21 @@ const SignIn = () => {
               Al continuar indicas que aceptas las condiciones de sevicio y la
               politica de privacidad de JaguarTech.
             </p>
-            <div className="google-form">
-              <FcGoogle className="google-icon" />
-              <p className="google-text">Continuar con Google</p>
+            <div className="button btn-google" >
+              <button onClick={logUserGooglePopUp}>
+                <FcGoogle className="google-icon" />
+                <p className="google-text">Continuar con Google</p>
+              </button>
             </div>
-            <div className="facebook-form">
-              <FaFacebook className="facebook-icon" />
-              <p className="facebook-text">Continuar con Facebook</p>
-            </div>
-            <Link to={"/sign-up"}>
-              <p className="email-login">
-                Registrate con el correo electronico
-              </p>
-            </Link>
+            {!isAuthPage && (
+              <div className="sign-up">
+                <Link to={"/sign-up"}>
+                  <p className="email-login">
+                    Registrate con el correo electronico
+                  </p>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

@@ -10,34 +10,11 @@ import { FaClipboardList } from "react-icons/fa";
 import { MdWorkspacesFilled } from "react-icons/md";
 import { IoMdNotifications } from "react-icons/io";
 
+
+
 import "./Navigation-Header.component.scss";
 
 const NavigationHeader = () => {
-  // const handleLogout = () => {
-  //   const token = window.localStorage.getItem("token");
-  //   console.log(token);
-  //   axios
-  //     .post(
-  //       "http://localhost:8000/logout/",
-  //       {},
-  //       {
-  //         headers: {
-  //           Authorization: token,
-  //         },
-  //       }
-  //     )
-  //     .then(function (response) {
-  //       window.localStorage.removeItem("token");
-  //       window.localStorage.removeItem("isLoggedIn");
-  //       document.location.reload();
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-  // const handleClick = () => {
-  //   window.location.reload();
-  // };
 
   return (
     <div className="navigation">

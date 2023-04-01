@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -82,7 +83,7 @@ export const signInUserWithEmailAndPassword = async(email, password) => {
 
 export const logOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => onAuthStateChangedListener(auth, callback);
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
 
 export const FIREBASE_ERROR_CODES = {
     NOT_FOUND: "auth/user-not-found",

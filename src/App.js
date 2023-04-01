@@ -12,7 +12,13 @@ function App() {
       <Route
         exact
         path="/"
-        element={isLoggedIn ? <NavigationHeader /> : <Auth showSignIn={setIsLoggedIn} />}
+        element={
+          isLoggedIn ? (
+            <NavigationHeader />
+          ) : (
+            <Auth showSignIn={setIsLoggedIn} />
+          )
+        }
       >
         <Route index element={<Home />} />
         <Route path="/sign-up" element={<Auth showSignUp={setIsLoggedIn} />} />
