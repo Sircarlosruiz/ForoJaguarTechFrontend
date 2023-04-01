@@ -5,7 +5,7 @@ import Home from "./routes/home/Home";
 import NavigationHeader from "./routes/navigation/Navigation-Header.component";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <Routes>
