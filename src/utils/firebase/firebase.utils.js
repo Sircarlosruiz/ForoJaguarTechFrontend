@@ -44,7 +44,7 @@ export const signInUserWithGooglePopup = () =>
 // export const signInUserWithFacebookPopup = () => signInWithPopup(auth, facebookProvider);
 
 //firestore connection
-export const db = () => getFirestore();
+export const db = () => getFirestore(firebaseApp);
 
 // Firestore Functions
 export const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {

@@ -1,0 +1,52 @@
+@import "../../utils/styles/constants.scss";
+
+.userMenu {
+  width: 250px;
+  top: 5rem;
+  right: 1rem;
+  flex-flow: column;
+  align-items: left;
+  padding-bottom: 0;
+
+  * {
+    cursor: pointer;
+  }
+
+  section {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid gray;
+  }
+
+  .user-header {
+    display: flex;
+    flex-flow: row;
+    padding: 1rem 0;
+
+    &:hover {
+      color: blue;
+    }
+  }
+}
+
+.user-links {
+  display: flex;
+  flex-flow: column;
+
+  * {
+    padding: 0.15rem 0;
+    &:hover {
+      color: blue;
+      font-weight: 600;
+    }
+  }
+}
+
+.logOut {
+  margin: 0;
+  padding-top: 0.5rem;
+
+  &:hover {
+    color: blue;
+    font-weight: 600;
+  }
+}
