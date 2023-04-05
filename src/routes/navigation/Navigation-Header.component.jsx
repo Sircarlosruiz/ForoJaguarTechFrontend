@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 // import logo from '../assets/logos/logo.jpg'
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineSearch,
@@ -15,6 +15,7 @@ import { UserContext } from "../../context/user.context";
 import ModalContainer from "../../components/modal-container/modal-container.component";
 import UserIcon from "../../components/user-icon/user.icon.component";
 import UserMenu from "../../components/user-nav-menu/user-nav-menu.component";
+import SignIn from "../../components/sign-in/sign-in.component";
 import { logOutUser } from "../../utils/firebase/firebase.utils";
 import { useOnClickOutside } from "../../components/utils/helpers";
 
@@ -22,6 +23,7 @@ import "./Navigation-Header.component.scss";
 
 const NavigationHeader = () => {
   const [showSignInModal, setShowSignInModal] = useState(false);
+  // const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const { currentUser } = useContext(UserContext);
@@ -33,6 +35,7 @@ const NavigationHeader = () => {
   //Effects
   useEffect(() => {
     currentUser && setShowSignInModal(false);
+
   }, [currentUser]);
 
   //callbacks functions
@@ -62,8 +65,12 @@ const NavigationHeader = () => {
   useOnClickOutside(signInModalRef, hideModal);
   return (
     <div className="navigation">
+
       <div className="menu-container">
+
+      <Link to={"/"}>
         <div className="logo">JaguarTech</div>
+      </Link>
 
         <div className="icon-home">
           <AiOutlineHome />
@@ -80,6 +87,7 @@ const NavigationHeader = () => {
         <div className="icon-notifications">
           <IoMdNotifications />
         </div>
+
         <div className="search-bar">
           <AiOutlineSearch className="icon-search-bar" />
           <input type="text" name="input-search" className="input-search-bar" />
@@ -113,9 +121,14 @@ const NavigationHeader = () => {
         <ModalContainer
           show={showSignInModal}
           className={"modal-container signIn"}
+          component={<SignIn/>}
+          modalRef={signInModalRef}
         />
+
       </div>
+
       <Outlet />
+      
     </div>
   );
 };

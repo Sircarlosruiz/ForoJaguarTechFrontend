@@ -1,7 +1,8 @@
 @import "../../utils/styles/constants.scss";
 
 .userMenu {
-  width: 250px;
+  width: 100vw;
+  height: 100vh;
   top: 5rem;
   right: 1rem;
   flex-flow: column;
@@ -19,11 +20,27 @@
 
   .user-header {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     padding: 1rem 0;
 
     &:hover {
       color: blue;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+
+      .user-name {
+        margin-left: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .user-email {
+        margin-left: 1rem;
+        font-size: 1rem;
+      }
     }
   }
 }
