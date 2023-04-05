@@ -28,8 +28,6 @@ const NavigationHeader = () => {
 
   const { currentUser } = useContext(UserContext);
 
-  console.log(currentUser);
-
   const signInModalRef = useRef();
 
   //Effects
