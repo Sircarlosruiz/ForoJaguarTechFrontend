@@ -33,7 +33,6 @@ const NavigationHeader = () => {
   //Effects
   useEffect(() => {
     currentUser && setShowSignInModal(false);
-
   }, [currentUser]);
 
   //callbacks functions
@@ -61,72 +60,79 @@ const NavigationHeader = () => {
   };
 
   useOnClickOutside(signInModalRef, hideModal);
+
   return (
     <div className="navigation">
-
       <div className="menu-container">
+        <div className="top-menu">
+          <div className="search-bar">
+            <AiOutlineSearch className="icon-search-bar" />
 
-      <Link to={"/"}>
-        <div className="logo">JaguarTech</div>
-      </Link>
-
-        <div className="icon-home">
-          <AiOutlineHome />
-        </div>
-
-        <div className="icon-follows">
-          <FaClipboardList />
-        </div>
-
-        <div className="icon-spaces">
-          <MdWorkspacesFilled />
-        </div>
-
-        <div className="icon-notifications">
-          <IoMdNotifications />
-        </div>
-
-        <div className="search-bar">
-          <AiOutlineSearch className="icon-search-bar" />
-          <input type="text" name="input-search" className="input-search-bar" />
-        </div>
-
-        {!currentUser ? (
-          <div
-            onClick={() => setShowSignInModal(!showSignInModal)}
-            className="icon-user"
-          >
-            <AiOutlineUser />
-            <p>Cuenta</p>
-          </div>
-        ) : (
-          <>
-            <UserIcon user={currentUser} showMenu={showMenu} />
-            <UserMenu
-              show={showUserMenu}
-              user={currentUser}
-              hideMenu={hideMenu}
-              logOutUser={handleLogOutUser}
+            <input
+              type="text"
+              name="input-search"
+              className="input-search-bar"
             />
-          </>
-        )}
+          </div>
 
-        <div className="add-question">
-          <AiOutlineQuestion className="icon-question-mark" />
-          <label className="text-question">Añade tu pregunta</label>
+          <Link to={"/"}>
+            <div className="logo">JaguarTech</div>
+          </Link>
+
+          <div className="add-question">
+            <AiOutlineQuestion className="icon-question-mark" />
+            <label className="text-question">Añade tu pregunta</label>
+          </div>
+        </div>
+
+        <div className="bottom-menu">
+          <div className="icon-home">
+            <AiOutlineHome />
+          </div>
+
+          <div className="icon-follows">
+            <FaClipboardList />
+          </div>
+
+          <div className="icon-spaces">
+            <MdWorkspacesFilled />
+          </div>
+
+          <div className="icon-notifications">
+            <IoMdNotifications />
+          </div>
+
+          {!currentUser ? (
+            <div
+              onClick={() => setShowSignInModal(!showSignInModal)}
+              className="icon-user"
+            >
+              <AiOutlineUser />
+              <p>Cuenta</p>
+            </div>
+          ) : (
+            <>
+              <UserIcon user={currentUser} showMenu={showMenu} />
+              <UserMenu
+                show={showUserMenu}
+                user={currentUser}
+                hideMenu={hideMenu}
+                logOutUser={handleLogOutUser}
+              />
+            </>
+          )}
+          
         </div>
 
         <ModalContainer
           show={showSignInModal}
           className={"modal-container signIn"}
-          component={<SignIn/>}
+          component={<SignIn />}
           modalRef={signInModalRef}
         />
-
       </div>
 
       <Outlet />
-      
     </div>
   );
 };
