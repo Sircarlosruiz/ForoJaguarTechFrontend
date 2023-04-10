@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Axios from "axios";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
 import "./sign-in.component.scss";
-
 import {
   signInUserWithEmailAndPassword,
   signInUserWithGooglePopup,
   createUserDocFromAuth,
   FIREBASE_ERROR_CODES,
 } from "../../utils/firebase/firebase.utils";
+
 
 const defaultFormFields = {
   email: "",
@@ -132,6 +130,7 @@ const SignIn = ({ className, hideModal, setCurrentUser }) => {
                 <p className="google-text">Continuar con Google</p>
               </button>
             </div>
+            
             {!isAuthPage && (
               <div className="sign-up">
                 <Link to={"/sign-up"}>
