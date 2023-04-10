@@ -4,13 +4,15 @@ import {
   AiFillLike,
   AiFillDislike,
   AiOutlineReload,
+  AiOutlineMore,
+  AiOutlineClose,
 } from "react-icons/ai";
 import { BsFillChatSquareDotsFill } from "react-icons/bs";
 
 import "./Posts.scss";
 import UserIcon from "../user-icon/user.icon.component";
 
-const Posts = ({ _, posts, user }) => {
+const Posts = ({ posts, user }) => {
   let postsLists = posts[1];
   let [categories] = postsLists.categories;
   let content = postsLists.content;
@@ -23,16 +25,22 @@ const Posts = ({ _, posts, user }) => {
       <div className="header-post">
 
       {!user ? (
-        <div> <AiOutlineUser/> </div>
+        <div className="icon-user"> <AiOutlineUser/> </div>
       ) : (<UserIcon user={user}/>)}
 
         <div class="post-user">
 
-          <div className="name-user">{!user ? <>Nombre de estudiante</> : user.displayName}</div>
+          <div className="name-user">{!user ? <label>Carlos Ruiz</label> : user.displayName}</div>
 
           <div className="status-user">Estudiante - Justo Ahora</div>
 
+          <div className="location-user">Managua</div>
+
         </div>
+
+          <div className="more-post"><AiOutlineMore/></div>
+
+          <div className="close-post"><AiOutlineClose/></div>
 
       </div>
 

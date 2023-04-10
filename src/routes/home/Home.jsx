@@ -12,70 +12,75 @@ import { UserContext } from "../../context/user.context";
 
 const Home = () => {
   const [postsList, setpostsList] = useState([]);
-
+  const [categoriesList, setCategoriesList] = useState([]);
 
   const { currentUser } = useContext(UserContext);
   const { posts } = useContext(PostContext);
+  const { categories } = useContext(PostContext);
 
   useEffect(() => {
-    let post = posts.map((x) => ({
-      isStudent: x.isStudent,
-      creator: x.creator,
-      categories: x.categories,
-      content: x.content,
-      isActive: x.isActive,
-      title: x.title,
+    let post = posts.map((post) => ({
+      isStudent: post.isStudent,
+      creator: post.creator,
+      categories: post.categories,
+      content: post.content,
+      isActive: post.isActive,
+      title: post.title,
+    }));
+
+    let category = categories.map((categories) => ({
+      name: categories.name,
+      followers: categories.followers,
     }));
 
     setpostsList(post);
-  }, [posts]);
+    setCategoriesList(category);
+  }, [posts, categories]);
 
   return (
-    <div className="navigation-container">
+    <div className="home-container">
+      <div className="category-container">contender de categoria</div>
 
-      <div className="home-container">
+      <div className="posts-container">
+        <div className="write-post">
+          <div className="perfil-writer">
+            {!currentUser ? (
+              <div className="user-icon">
+                <AiOutlineUser />
+              </div>
+            ) : (
+              <UserIcon user={currentUser} className="user-icon" />
+            )}
 
-        <div className="write-post-icon">
-
-          {/* <div className="icon-user">
-            <AiOutlineUser className="icon-question-mark" />
-          </div> */}
-
-          {!currentUser ? (<div>
-            <AiOutlineUser/>
-          </div>) : (
-            <UserIcon user={currentUser}/>
-          )}
-
-          <div className="input-icon">
-            <textarea
-              rows="4"
-              cols="50"
-              placeholder="¿Qué quieres preguntar o compartir?"
-              className="input-text-post"
-            />
+            <div className="input-post">
+              <input
+                placeholder="¿Qué quieres preguntar o compartir?"
+                className="input-text-post"
+              />
+            </div>
           </div>
 
-          <div className="question-icon">
-            <AiOutlineQuestion className="icon-question-mark" />
-            <label>Preguntar</label>
-          </div>
+          <div className="action-writer">
+            <div className="question-icon">
+              <AiOutlineQuestion className="icon-question-mark" />
+              <label>Preguntar</label>
+            </div>
 
-          <div className="reply-icon">
-            <BsPencilSquare className="icon-reply" />
-            <label>Responder</label>
-          </div>
+            <div className="reply-icon">
+              <BsPencilSquare className="icon-reply" />
+              <label>Responder</label>
+            </div>
 
-          <div className="post-icon">
-            <FaPenFancy className="icon-post" />
-            <label>Publicación</label>
+            <div className="post-icon">
+              <FaPenFancy className="icon-post" />
+              <label>Publicación</label>
+            </div>
           </div>
-
         </div>
-
-        {Object.entries(postsList).map((item, idx) => (
-          <Posts key={idx} posts={item} user={currentUser}/>
-        ))}
+        
+      {Object.entries(postsList).map((item, idx) => (
+        <Posts key={idx} posts={item} user={currentUser} />
+      ))}
 
       </div>
 

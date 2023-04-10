@@ -2,10 +2,12 @@ import { createContext, useEffect, useState } from "react";
 
 export const PostContext = createContext({
   posts: [],
+  categories:[],
 });
 
 export const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
+  const [categories, setcategories] = useState([])
   let value = [];
   
   useEffect(() => {
@@ -18,11 +20,19 @@ export const PostProvider = ({ children }) => {
       // console.log(posts);
     };
 
+    const getCategories = async() => {
+      const response = await fetch("http://localhost:8000/all-categories");
+      const categories = await response.json();
+      setcategories(categories);
+    }
+
     getPosts();
+    getCategories();
   }, []);
 
   value = ({
     posts,
+    categories,
   })
 
 

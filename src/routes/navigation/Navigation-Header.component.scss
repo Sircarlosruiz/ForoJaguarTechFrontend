@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     width: 95vw;
+    font-family: $Manrope-family;
 
     .modal-container {
       width: auto;
@@ -41,17 +42,11 @@
       text-decoration: none;
       color: black;
 
-      img{
-        width: 4rem;
-        height: 4rem;
+      img {
+        width: 2rem;
+        height: 2rem;
         border-radius: 50%;
       }
-    }
-
-    .logo {
-      margin-right: 1rem;
-      font-size: 1.5rem;
-      padding-left: 1rem;
     }
 
     svg {
@@ -59,127 +54,123 @@
       height: 1.5rem;
     }
 
-    .nav-links{
+    .top-menu {
       display: flex;
-      justify-content: space-between;
+      flex-direction: row-reverse;
+
+      .logo {
+        margin-right: 1rem;
+        font-size: 1.5rem;
+        padding-left: 1rem;
+        font-family: $Roboto-Mono-family;
+      }
+
+      .add-question {
+        display: none;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        width: 12rem;
+
+        .icon-search-bar {
+          width: 22rem;
+          height: 1.5rem;
+          margin: 0.1rem;
+          position: absolute;
+        }
+      }
+    }
+
+    .bottom-menu {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
       align-items: center;
-      width: 25vw;
-      
+
       .icon-home {
         display: flex;
         align-items: center;
         justify-content: center;
-  
+
         svg {
           width: 2rem;
           height: 2rem;
         }
       }
-  
+
       .icon-follows {
         display: flex;
         align-items: center;
         justify-content: center;
-  
+
         svg {
           width: 2rem;
           height: 2rem;
         }
       }
-  
+
       .icon-spaces {
         display: flex;
         align-items: center;
         justify-content: center;
-  
+
         svg {
           width: 2rem;
           height: 2rem;
         }
       }
-  
+
       .icon-notifications {
         display: flex;
         align-items: center;
         justify-content: center;
-  
+
         svg {
           width: 2rem;
           height: 2rem;
         }
       }
 
-    }
+      .icon-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
+        p {
+          margin: 0;
+          font-size: 0.8rem;
+        }
 
-    .search-bar {
-      display: flex;
-      align-items: center;
-      width: 12rem;
-
-      .icon-search-bar {
-        width: 22rem;
-        height: 1.5rem;
-        margin: 0.1rem;
-        position: absolute;
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
       }
     }
+  }
+}
+//MOBILE
+@media (max-width: $break-mobileLarge) {
+  .navigation {
+    width: 100vw;
 
-
-
-    .icon-user {
+    .menu-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
-
-      p {
-        margin: 0;
-        font-size: 0.8rem;
-      }
+      width: 100vw;
+      height: 15vh;
 
       svg {
         width: 2rem;
         height: 2rem;
       }
-    }
 
-    .add-question {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .text-question {
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-left: 0.5rem;
-        margin-bottom: 0;
-      }
-    }
-
-  }
-}
-//MOBILE
-@media (max-width: $break-mobileLarge) {
-
-  .navigation {
-    width: 100vw;
-
-    .menu-container{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      width: 100vw;
-      height: 15vh;
-
-      svg{
-        width: 2rem;
-        height: 2rem;
-      }
-
-      .top-menu{
+      .top-menu {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -187,33 +178,31 @@
         width: 100vw;
         padding: 0.5rem;
 
-        
-      .search-bar{
-        width: auto;
-        height: auto;
+        .search-bar {
+          width: auto;
+          height: auto;
 
-        .icon-search-bar{
-          width: 2rem;
-          height: 2rem;
-          margin: 0;
-          position: relative;
+          .icon-search-bar {
+            width: 2rem;
+            height: 2rem;
+            margin: 0;
+            position: relative;
+          }
 
+          .input-search-bar {
+            display: none;
+          }
         }
 
-        .input-search-bar{
-          display: none;
+        .add-question {
+          display: block;
+          .text-question {
+            display: none;
+          }
         }
       }
 
-      .add-question{
-
-        .text-question{
-          display: none;
-        }
-      }
-      }
-
-      .bottom-menu{
+      .bottom-menu {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -221,82 +210,82 @@
         width: 100vw;
         padding: 0.5rem;
 
-        .nav-links{
+        .nav-links {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
           margin: 0.2rem 1rem;
           width: 100vw;
-  
-          .icon-home{
+
+          .icon-home {
             display: flex;
             align-items: center;
             justify-content: center;
-  
-            svg{
+
+            svg {
               width: 2rem;
               height: 2rem;
             }
           }
-  
-          .icon-follows{
+
+          .icon-follows {
             display: flex;
             align-items: center;
             justify-content: center;
-  
-            svg{
+
+            svg {
               width: 2rem;
               height: 2rem;
             }
           }
-  
-          .icon-spaces{
+
+          .icon-spaces {
             display: flex;
             align-items: center;
             justify-content: center;
-  
-            svg{
+
+            svg {
               width: 2rem;
               height: 2rem;
             }
           }
-  
-          .icon-notifications{
+
+          .icon-notifications {
             display: flex;
             align-items: center;
             justify-content: center;
-  
-            svg{
+
+            svg {
               width: 2rem;
               height: 2rem;
             }
           }
-  
-          .icon-user{
+
+          .icon-user {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-  
-            p{
+
+            p {
               margin: 0;
               font-size: 0.8rem;
             }
-  
-            svg{
+
+            svg {
               width: 2rem;
               height: 2rem;
             }
           }
-  
-          .add-question{
+
+          .add-question {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-  
-            .text-question{
+
+            .text-question {
               font-size: 0.8rem;
               font-weight: 600;
               margin-left: 0.5rem;
@@ -305,17 +294,12 @@
           }
         }
 
-        .icon-user{
-
-          p{
+        .icon-user {
+          p {
             display: none;
           }
         }
       }
-
-
     }
-
   }
-
 }

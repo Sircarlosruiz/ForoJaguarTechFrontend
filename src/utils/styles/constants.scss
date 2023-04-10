@@ -1,6 +1,10 @@
 @charset "UTF-8";
 $max-width: 1500px;
 
+$Yantramanv-family: 'Yantramanav', sans-serif;
+$Roboto-Mono-family: 'Roboto Mono', monospace;
+$Manrope-family: 'Manrope', sans-serif;
+
 //_breakpoints
 $break-mobileXSmall: 320px;
 $break-mobileSmall: 375px;
@@ -13,3 +17,6 @@ $break-desktopLarge: 1920px;
 $break-desktopXLarge: 2560px;
 
 //_colors
+$darker-turquesa-blue: rgb(0, 80, 89);
+$dark-turquesa-blue: rgb(0, 150, 166);
+$turquesa-blue: rgb(0, 180, 198);

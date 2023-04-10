@@ -1,100 +1,116 @@
 @import "../../utils/styles/constants.scss";
 
 .home-container {
-  height: 20%;
-  width: 55vw;
+  display: flex;
   position: relative;
   top: 2em;
-  left: 20vw;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: $Manrope-family;
 
-  .write-post-icon {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  .category-container{
+    border: 1px solid red;
+  }
 
-    .icon-user {
-      grid-area: 1 / 1 / 2 / 2;
-      width: 4em;
-      height: 3em;
+  .posts-container{
+    width: 80vh;
 
-      svg {
-        width: 100%;
+    .write-post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  
+    .perfil-writer{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0;
+  
+      .user-icon{
+        width: 20%;
         height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+  
+        svg{
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+        }
+      }
+  
+      a {
+        text-decoration: none;
+        color: black;
+  
+        img {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+        }
+      }
+  
+      .input-post{
+        height: 100%;
+        width: 80%;
+  
+        input{
+          width: 100%;
+          height: 4rem;
+          border: none;
+          background: none;
+          color: black;
+          font-size: 1.2em;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 300;
+          resize: none;
+          outline: none;
+        }
       }
     }
-    .input-icon {
-      grid-area: 1 / 1 / 2 / 4;
-      width: 98%;
-      height: 3rem;
+  
+    .action-writer{
+      width: 100%;
+      height: 2rem;
       display: flex;
-      position: fixed;
-      left: 50px;
-      padding: 6px;
-
-      .input-text-post {
-        width: 88%;
-        border: 1px solid gray;
-        border-radius: 25px;
-        padding: 5px;
-      }
-    }
-    .question-icon {
-      grid-area: 2 / 1 / 3 / 2;
-      display: flex;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      padding: 5px 15px;
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-
-      label{
-        margin: 0;
-      }
-    }
-    .reply-icon {
-      grid-area: 2 / 2 / 3 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5px 15px;
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-
-      label{
-        margin: 0;
-      }
-    }
-    .post-icon {
-      grid-area: 2 / 3 / 3 / 4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5px 15px;
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-
-      label{
-        margin: 0;
+      justify-content: space-evenly;
+      padding: 0;
+  
+      .question-icon, .reply-icon, .post-icon{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+  
+        svg{
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 50%;
+          margin-right: .5rem;
+        }
+  
+        label{
+          margin-bottom: 0;
+        }
       }
     }
   }
+
+  }
+
+
 }
 
 //MOBILE
@@ -105,8 +121,9 @@
     left: 0;
     border-radius: 0;
 
-    .write-post-icon {
-      height: 12vh;
+    .category-container{
+      display: none;
     }
+
   }
 }
