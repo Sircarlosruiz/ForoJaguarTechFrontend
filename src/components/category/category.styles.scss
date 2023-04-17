@@ -1,0 +1,8 @@
+@import url('../../utils/styles/constants.scss');
+
+.category-container{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}

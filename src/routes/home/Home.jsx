@@ -9,6 +9,7 @@ import { PostContext } from "../../context/post.context";
 import UserIcon from "../../components/user-icon/user.icon.component";
 import "./Home.scss";
 import { UserContext } from "../../context/user.context";
+import Category from "../../components/category/category.component";
 
 const Home = () => {
   const [postsList, setpostsList] = useState([]);
@@ -39,7 +40,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="category-container">contender de categoria</div>
+      <Category categories={categoriesList}/>
 
       <div className="posts-container">
         <div className="write-post">
