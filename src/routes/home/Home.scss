@@ -4,119 +4,128 @@
   display: flex;
   margin-top: 2rem;
   font-family: $Manrope-family;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: baseline;
 
-  .posts-container{
-    width: 80vh;
+  .posts-container {
+    width: 50%;
 
-    .write-post{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-  
-    .perfil-writer{
-      width: 100%;
-      height: 100%;
+    .write-post {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: center;
+      width: 100%;
       padding: 0;
-  
-      .user-icon{
-        width: 20%;
+
+      .perfil-writer {
+        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         padding: 0;
-  
-        svg{
-          width: 2rem;
-          height: 2rem;
-          border-radius: 50%;
+
+        .user-icon {
+          width: 10%;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+
+          svg {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+          }
         }
-      }
-  
-      a {
-        text-decoration: none;
-        color: black;
-  
-        img {
-          width: 2.5rem;
-          height: 2.5rem;
-          border-radius: 50%;
-        }
-      }
-  
-      .input-post{
-        height: 100%;
-        width: 80%;
-  
-        input{
-          width: 100%;
-          height: 4rem;
-          border: none;
-          background: none;
+
+        a {
+          text-decoration: none;
           color: black;
-          font-size: 1.2em;
-          font-family: 'Roboto', sans-serif;
-          font-weight: 300;
-          resize: none;
-          outline: none;
+
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+          }
+        }
+
+        .input-post {
+          height: 100%;
+          width: 90%;
+
+          input {
+            width: 100%;
+            height: 4rem;
+            border: none;
+            background: none;
+            color: black;
+            font-size: 1.2em;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            resize: none;
+            outline: none;
+          }
         }
       }
-    }
-  
-    .action-writer{
-      width: 100%;
-      height: 2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-      padding: 0;
-  
-      .question-icon, .reply-icon, .post-icon{
-        width: 33%;
-        height: 100%;
+
+      .action-writer {
+        width: 100%;
+        height: 2rem;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         padding: 0;
-  
-        svg{
-          width: 1.5rem;
-          height: 1.5rem;
-          border-radius: 50%;
-          margin-right: .5rem;
-        }
-  
-        label{
-          margin-bottom: 0;
+
+        .question-icon,
+        .reply-icon,
+        .post-icon {
+          width: 33%;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+
+          svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+          }
+
+          label {
+            margin-bottom: 0;
+          }
         }
       }
     }
   }
-
-  }
-
-
 }
 
 //MOBILE
 @media (max-width: $break-mobileLarge) {
   .home-container {
-    width: 100vw;
+    width: 100%;
     margin-top: 0;
 
-    .category-container{
+    .category-container {
       display: none;
     }
 
+    .posts-container {
+      width: 100%;
+    }
+
+    .email-container {
+      display: none;
+    }
   }
 }

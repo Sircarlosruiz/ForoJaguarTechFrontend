@@ -1,8 +1,11 @@
-@import url('../../utils/styles/constants.scss');
+@import '../../utils/styles/constants.scss';
 
 .category-container{
-    border: 1px solid red;
     display: flex;
+    font-family: $Roboto-Mono-family;
+    border: 1px solid red;
     flex-direction: column;
     align-items: start;
+
+
 }

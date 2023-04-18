@@ -12,8 +12,8 @@ export const categoryImages = [
     URL: "../../public/assets/category-images/DataScience.png",
   },
   {
-    Name: "Artificial Inteligence",
-    URL: "../../public/assets/category-images/ArtificialInteligence.png",
+    Name: "Artificial Intelligence",
+    URL: "../../public/assets/category-images/ArtificialIntelligence.png",
   },
   {
     Name: "Videogames",

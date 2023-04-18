@@ -85,6 +85,8 @@ const Home = () => {
 
       </div>
 
+      <div className="email-container">contenedor del email</div>
+
     </div>
   );
 };
