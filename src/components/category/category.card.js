@@ -3,10 +3,6 @@ import React from "react";
 import "./category.styles.scss";
 
 const CategoryCard = ({ categories }) => {
-  console.log("====================================");
-  console.log(categories);
-  console.log("====================================");
-
   const { name, URL } = categories;
 
   return (
