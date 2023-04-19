@@ -1,15 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const CategoryCard = ({categories}) => {
+import "./category.styles.scss";
 
-    const {name} = categories;
+const CategoryCard = ({ categories }) => {
+  console.log("====================================");
+  console.log(categories);
+  console.log("====================================");
 
-    return (
-        <section className='categorie-card'>
-            <div className='name-categorie'>{name}</div>
-            <div className='img-categorie'></div>
-        </section>
-    );
-}
+  const { name, URL } = categories;
+
+  return (
+    <section className="category-card">
+      <div className="name-categorie">{name}</div>
+      <img src={URL} alt={name} className="CategoryImage" />
+    </section>
+  );
+};
 
 export default CategoryCard;
