@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import {
   AiOutlineUser,
   AiFillLike,
@@ -18,40 +18,43 @@ const Posts = ({ posts, user }) => {
   let content = postsLists.content;
   let title = postsLists.title;
 
-
   return (
     <div className="post-container">
-
       <div className="header-post">
-
-      {!user ? (
-        <div className="icon-user"> <AiOutlineUser/> </div>
-      ) : (<UserIcon user={user}/>)}
+        {!user ? (
+          <div className="icon-user">
+            {" "}
+            <AiOutlineUser />{" "}
+          </div>
+        ) : (
+          <UserIcon user={user} />
+        )}
 
         <div class="post-user">
-
-          <div className="name-user">{!user ? <label>Carlos Ruiz</label> : user.displayName}</div>
+          <div className="name-user">
+            {!user ? <label>Carlos Ruiz</label> : user.displayName}
+          </div>
 
           <div className="status-user">Estudiante - Justo Ahora</div>
 
           <div className="location-user">Managua</div>
-
         </div>
 
-          <div className="more-post"><AiOutlineMore/></div>
+        <div className="more-post">
+          <AiOutlineMore />
+        </div>
 
-          <div className="close-post"><AiOutlineClose/></div>
-
+        <div className="close-post">
+          <AiOutlineClose />
+        </div>
       </div>
 
       <div class="post-content">
-
         <div className="categories-post">{categories}</div>
 
         <div className="title-post">{title}</div>
 
         <div className="content-post">{content}</div>
-
       </div>
 
       <div className="action-post">
@@ -64,7 +67,6 @@ const Posts = ({ posts, user }) => {
           <AiOutlineReload />
         </div>
       </div>
-
     </div>
   );
 };
