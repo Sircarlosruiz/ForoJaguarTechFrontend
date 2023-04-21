@@ -3,24 +3,24 @@ import React from "react";
 import UserIcon from "../user-icon/user.icon.component";
 
 import {
-  AiOutlineClose,
   AiFillCaretRight,
   AiOutlineDown,
 } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 
+import './modal-post.styles.scss' 
+
 const ModalPost = ({ currentUser }) => {
   return (
     <section className="modal-post">
-      <div className="header-post">
-        <AiOutlineClose />
-      </div>
       <div className="body-post">
+
         <div className="select-action">
           <p>Añadir pregunta</p>
           <p>Crear publicación</p>
         </div>
+
         <div className="advertising">
           <p>Consejos para recibir buenas respuestas enseguida</p>
           <ul>
@@ -29,6 +29,7 @@ const ModalPost = ({ currentUser }) => {
             <li>Comprueba que no haya errores ortográficos o gramaticales</li>
           </ul>
         </div>
+
         <div className="select-privacity">
           {!currentUser ? (
             <div className="user-icon">
@@ -46,6 +47,7 @@ const ModalPost = ({ currentUser }) => {
             <AiOutlineDown />
           </div>
         </div>
+
         <div className="input-modal">
           <input
             type="text"
@@ -54,17 +56,21 @@ const ModalPost = ({ currentUser }) => {
             placeholder="Empieza la pregunta con ¿Qué?, ¿Cómo?, ¿Por qué?, etc. "
           />
         </div>
+
       </div>
+      
       <div className="footer-post">
         <input
           type="button"
           onClick={() => console.log("hola mundo")}
           value="Cancelar"
+          className="btn-cancell"
         />
         <input
           type="button"
           onClick={() => console.log("hola mundo")}
           value="Añadir pregunta"
+          className="btn-ask"
         />
       </div>
     </section>

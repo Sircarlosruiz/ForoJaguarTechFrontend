@@ -23,8 +23,7 @@ const Posts = ({ posts, user }) => {
       <div className="header-post">
         {!user ? (
           <div className="icon-user">
-            {" "}
-            <AiOutlineUser />{" "}
+            <AiOutlineUser />
           </div>
         ) : (
           <UserIcon user={user} />

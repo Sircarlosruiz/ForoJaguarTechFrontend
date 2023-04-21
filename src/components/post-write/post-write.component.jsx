@@ -69,7 +69,7 @@ const PostWrite = ({ currentUser }) => {
       <ModalContainer
         show={showPostModal}
         className={"modal-container post"}
-        component={<ModalPost/>}
+        component={<ModalPost currentUser={currentUser}/>}
         modalRef={postModalRef}
       />
     </div>
