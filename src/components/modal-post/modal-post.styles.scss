@@ -1,131 +1,135 @@
-@import '../../utils/styles/constants.scss';
+@import "../../utils/styles/constants.scss";
 
-.modal-post{
-    border: 1px solid red;
-    width: 100%;
-    height: 100%;
+.modal-post {
+  width: 100%;
+  height: 100%;
 
-    .body-post{
-        .select-action{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            border-bottom: 1px solid blue;
+  .body-post {
+    height: 90%;
 
-            p{
-                font-size: 1.2rem;
-                font-weight: 600;
-                color: black;
-                margin-bottom: 0;
-            }
-        }
+    .select-action {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
 
-        .advertising{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 1rem;
-
-            p{
-                font-size: 1rem;
-                font-weight: 600;
-                color: black;
-                margin-bottom: 0;
-            }
-        }
-
-        .select-privacity{
-            display: flex;
-            justify-content: start;
-            align-items: center;
-
-            .user-account{
-                display: flex;
-                justify-content: start;
-                align-items: center;
-
-                img{
-                    width: 2rem;
-                    height: 2rem;
-                    border-radius: 50%;
-                    margin: .2rem;
-            }
-        }
-
-            .user-icon{
-                width: 2rem;
-                height: 2rem;
-                border-radius: 50%;
-                margin: 10px;
-                border: 2px solid black;
-          
-                svg {
-                  width: 2rem;
-                  height: 2rem;
-                }
-            }
-
-            label{
-                font-size: 1.2rem;
-                font-weight: 600;
-                color: black;
-                margin-bottom: 0;
-            }
-
-            .select-public{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-
-        .input-modal{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            margin: 1rem 0;
-
-            input{
-                font-size: 1rem;
-                font-weight: 600;
-                color: black;
-                margin-bottom: 0;
-                width: 100%;
-            }
-        }
-
+      p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 0;
+      }
     }
 
-    .footer-post{
+    .advertising {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 1rem;
+
+      p {
+        font-size: 1rem;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 0;
+      }
+    }
+
+    .select-privacity {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      .user-account {
         display: flex;
-        justify-content: end;
+        justify-content: start;
         align-items: center;
-        margin: 1rem 0;
 
-        .btn-cancell{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 5rem;
-            height: 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-right: 1rem;
+        img {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          margin: 0.2rem;
         }
+      }
 
-        .btn-ask{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: black;
+      .user-icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        margin: 10px;
+        border: 2px solid black;
+
+        svg {
+          width: 2rem;
+          height: 2rem;
         }
+      }
+
+      label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 0;
+      }
+
+      .select-public {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
+
+    .input-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      margin: 1rem 0;
+      border-bottom: 2px solid #333;
+      border-radius: 3px;
+      padding: 5px 10px;
+
+      input {
+        font-size: 1rem;
+        outline: none;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 0;
+        width: 100%;
+        border: none;
+      }
+    }
+  }
+
+  .footer-post {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 1rem 0;
+
+    .btn-cancell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+
+    .btn-ask {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: black;
+    }
+  }
 }
