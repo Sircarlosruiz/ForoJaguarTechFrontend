@@ -8,9 +8,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
-import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  getDocs,
+  getFirestore,
+  setDoc,
+} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -51,7 +60,7 @@ export const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {
   if (!userAuth) return;
 
   const userDocRef = doc(db(), "users", userAuth.uid);
-  const userData = await getDoc(userDocRef);
+  const userData = await getDocs(userDocRef);
 
   if (!userData.exists()) {
     const { email } = userAuth;
@@ -76,17 +85,61 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth, email, password);
 };
 
-export const signInUserWithEmailAndPassword = async(email, password) => {
-    if (!email || !password) return;
-    return await signInWithEmailAndPassword(auth, email, password);
+export const signInUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+
+//CRUD FUNCTIONS
+const itemsCollection = collection(db, "items");
+
+//CREATE(creando documento)
+export const createItem = async (data) => {
+  try {
+    const docRef = await addDoc(itemsCollection, data);
+    console.log("Document written with ID: ", docRef.id);
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+};
+
+// READ (obtener todos los documentos)
+export const getItems = async () => {
+  const querySnapshot = await getDocs(itemsCollection);
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+  });
+};
+
+// UPDATE (Actualizar un documento)
+export const updateItem = async (docId, data) => {
+  const docRef = doc(db, "items", docId);
+  try {
+    await updateDoc(docRef, data);
+    console.log("Document successfully updated!");
+  } catch (error) {
+    console.error("Error updating document: ", error);
+  }
+};
+
+//DELETE (eleminando el documento)
+export const deleteItem = async (docId) => {
+  const docRef = doc(db, "items", docId);
+  try {
+    await deleteDoc(docRef);
+    console.log("Document successfully deleted");
+  } catch (error) {
+    console.error("Error deleting document: ", error);
+  }
 };
 
 export const logOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
 
 export const FIREBASE_ERROR_CODES = {
-    NOT_FOUND: "auth/user-not-found",
-    WRONG_PASSWORD: "auth/wrong-password",
-    NOT_ALLOWED: "auth/operation-not-allowed",
-  };
+  NOT_FOUND: "auth/user-not-found",
+  WRONG_PASSWORD: "auth/wrong-password",
+  NOT_ALLOWED: "auth/operation-not-allowed",
+};
